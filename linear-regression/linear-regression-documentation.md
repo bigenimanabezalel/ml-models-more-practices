@@ -103,6 +103,10 @@ speed = mymodel(17)
 print("The future speed value ", speed)
 ```
 
+![alt text](image.png) 
+
+The lines in the image shows the optimal degree of a polynomial
+
 ## General knowledge 
 
 - Problem with R²: It always increases when you add more predictors (or higher polynomial degree), even if those predictors are useless. 
@@ -116,3 +120,52 @@ print("The future speed value ", speed)
 - If adding a predictor doesn’t help, Adjusted R² decreases
 
 - This helps you avoid overfitting.
+
+
+# Multiple regression
+
+- Multiple regression is like linear regression, but with more than one independent value,
+- The prediction of a value of dependent value (y) is based on two or more indepent variables(X).
+- It is common to name the list of independent values with a upper case X, and the list of dependent values with a lower case y
+- Useful methods from the <sklearn> module include: 
+        . LinearRegression() method to create a linear regression object
+        . This method has fit() method that takes the independent and dependent values as parameters and fills the regression object with data that describes the relationship
+        . Also, has predict() method that use new data to fitted model to predict future value 
+- The coefficient of indpentent variable (use coef_ ) is a factor that describes the relationship with an unknown variable (i.e the increase of one unit on idepented variable how much will increase or decrease the depentent variable)
+Eg  y= a.W+ b.V --> a, b are coefficient of the regression
+
+ Example: Let predict car CO2 emmision based on car weight and  volume
+
+ ```python
+ import pandas as pd
+ from sklearn import linear_model
+
+
+df = pd.read_csv("data.csv")
+X = df [['Weight','Volume']] ## 
+y = df['CO2']
+regression_model = linear_model.LinearRegression (X,y)
+fitted_model = regression_model.fit()    
+
+# Pridict future value y on fitted model with new data
+
+predictedCO2 = regression_model.predict([[2300, 1300]])
+
+print(predictedCO2)
+print(regr.coef_)   # This will generate the coefficients of each variable in the list of the independent variable
+```
+
+- If result array represents the coefficient values of weight and volume.
+        Weight: 0.00755095
+        Volume: 0.00780526
+    - These values tell us that if the weight increase by 1kg, the CO2 emission increases by 0.00755095g.
+    - And if the engine size (Volume) increases by 1cm3, the CO2 emission increases by 0.00780526g.
+
+
+# Evaluate the performance of the model using R-squared
+
+```python
+print("R_squared is:", round(model.score(X, y), 4))
+
+'''R_squared is: 0.3766 means that the model explains about 37.7% of the variance in y based on the features in X. This indicates that there are other factors influencing CO2 emissions that are not captured by the model, and it may not be a very strong predictor of CO2 emissions.'''
+

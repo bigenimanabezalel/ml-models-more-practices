@@ -22,6 +22,7 @@ print("Intercept:", round(model.intercept_, 4))    # Intercept: 79.6947
 # Predict the CO2 emissions for a new car with a weight of 3000 and a volume of 1500
 new_car = [[3000, 1500]]    
 predicted_co2 = model.predict(new_car)
+
 print("Predicted CO2 emissions for the new car:", predicted_co2[0])
 
 # Evaluate the performance of the model using R-squared

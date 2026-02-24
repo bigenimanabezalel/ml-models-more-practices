@@ -4,11 +4,11 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 
 """
-In this code, we are performing linear regression on a dataset that contains information about the weight, volume, and CO2 emissions of certain objects. We first import the necessary libraries, including pandas for data manipulation, os for handling file paths, and sklearn for linear regression and data scaling.
+- In this code, we are performing linear regression on a dataset that contains information about the weight, volume, and CO2 emissions of certain objects. We first import the necessary libraries, including pandas for data manipulation, os for handling file paths, and sklearn for linear regression and data scaling.
 
-The scaling is the Z-score normalization given by (x - mean) / std where x is weight or volume, mean is the average of weight or volume and std is the standard deviation of weight or volume. This will give us a new matrix with the same number of rows and columns as X but with the values scaled to have a mean of 0 and a standard deviation of 1.
+- The scaling is the Z-score normalization given by (x - mean) / std where x is weight or volume, mean is the average of weight or volume and std is the standard deviation of weight or volume. This will give us a new matrix with the same number of rows and columns as X but with the values scaled to have a mean of 0 and a standard deviation of 1.
 
-The purpose of scaling the features is to ensure that they are on the same scale, which can improve the performance of the linear regression model. After scaling the features, we fit the linear regression model to the scaled data and print out the R^2 score, coefficients, and intercept of the model.
+- The purpose of scaling the features is to ensure that they are on the same scale, which can improve the performance of the linear regression model. After scaling the features, we fit the linear regression model to the scaled data and print out the R^2 score, coefficients, and intercept of the model.
 
 """
 
